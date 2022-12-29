@@ -1,0 +1,36 @@
+<div class="animate__animated animate__fadeIn animate__faster">
+<h2>Por Pais</h2>
+<hr>
+<div class="row">
+    <div class="col">
+        <!-- falta que llame la funcion de buscar() -> escuchar desde el padre -->
+        <!-- Disparar datos a diestra y siniestra a -->
+      <app-pais-input placeHolder="Buscar Pais.." (onEnter)="buscar($event)" (onDebounce)="sugerencias($event)"></app-pais-input>
+    </div>
+</div>
+
+<ul *ngIf="mostrarSugerencias" class="list-group"> 
+    <li *ngFor="let paisSugerido of paisesSugeridos"
+     class="list-group-item list-group-item-action">
+        <!-- router link para llevar  -->
+        <a class="nav-link" [routerLink]="['/pais', paisSugerido.alpha2Code]"> {{paisSugerido.name}}</a>
+    </li>
+    <li 
+     class="list-group-item list-group-item-action" 
+     (click)="buscarSugerido(termino)">
+        <!-- router link para llevar  -->
+        <a class="nav-link"> Buscar "{{termino}}"</a>
+    </li>
+</ul>
+
+<hr>
+<div *ngIf="hayError" class="alert alert-danger">
+    No se encontro el termino de "{{termino}}"
+</div>
+
+
+<div *ngIf="paises.length > 0"  class="row">
+    <div class="col">
+            <app-pais-tabla [paises]="paises"></app-pais-tabla>
+    </div>
+</div>

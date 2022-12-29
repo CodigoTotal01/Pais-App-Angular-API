@@ -1,0 +1,14 @@
+    <!-- De las 12 columnas toma 3 -->
+    <!-- Evitar el full refresh  -->
+
+        <h2>Busquedas</h2>
+        <hr>
+        <!-- routerLink -->
+        <ul class="list-group">
+            <!-- indicamos que debe ser igaul que el router link -> cuando es el full  -->
+            <li routerLink='' routerLinkActive="active" routerLinkActiveOption="{exact: true}" class="list-group-item">Buscar Pais</li>
+            <li routerLink="region" routerLinkActive="active" class="list-group-item">Por region</li>
+            <li routerLink="capital" routerLinkActive="active" class="list-group-item">Por capital</li>
+        </ul>
+    
+    <!-- toma el resto de columnas -> recuerda que esta en un container -->

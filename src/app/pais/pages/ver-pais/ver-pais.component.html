@@ -1,0 +1,49 @@
+<div *ngIf="!pais; else divPais" class="alert alert-info">
+    Espere Por Favor
+</div>
+<!-- ng es para que se meustre con un else or if  -->
+<ng-template #divPais>
+    <div class="reow">
+        <div class="col-12">
+            <h1>Pais: <small>{{pais.name}}</small></h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h3>Bandera</h3>
+            <img class="img-thumbnail" [src]="pais.flag" alt="">
+        </div>
+
+        <div class="col">
+            <h3>Informacion</h3>
+            <ul class="list-group">
+                <li class="list-group-item"> 
+                    <strong>Problacion </strong> {{pais.population}}
+                </li>
+                <li class="list-group-item"> 
+                    <strong>Codigo </strong> {{pais.numericCode}}
+                </li>
+                <li class="list-group-item"> 
+                    <strong>Codigo  alpah3</strong> {{pais.alpha3Code}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <h3>Traducciones</h3>
+    <div class="row">
+        <div class="col">
+            <span class="badge bg-primary mr-1">{{pais.translations.de}}</span> 
+            <span class="badge bg-primary mr-1">{{pais.translations.es}}</span>
+            <span class="badge bg-primary mr-1">{{pais.translations.fr}}</span>
+            <span class="badge bg-primary mr-1">{{pais.translations.ja}}</span>
+            <span class="badge bg-primary mr-1">{{pais.translations.hr}}</span>
+        </div>
+    </div>
+
+    <pre class="mt-5">
+        <!-- //obejto a html mostrar  -->
+        {{pais | json}}
+    </pre>
+</ng-template>
+
